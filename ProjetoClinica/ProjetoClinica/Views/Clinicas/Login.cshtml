@@ -6,3 +6,31 @@
 
 <h2>Login</h2>
 
+<section id="Login">
+    <div class="row">
+        <!--ESPAÇAMENTO ESQUERDA-->
+        <div class="col s12 m12 l8">
+            <br />
+        </div>
+
+        <!--FORMULARIO DE LOGIN-->
+        <div class="col s12 m12 l4">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-red" })
+
+                <label>CPF</label>
+                    @Html.EditorFor(model => model.Login)
+
+                    <label>Senha</label>
+                    @Html.PasswordFor(model => model.Senha)
+
+                    <input type="submit" name="btnEntrar" value="Entrar" class="btn" />
+                    <br/>
+                    <a href="@Url.Action("Create", "Clinicas")"><p>Cadastre-se</p></a>
+            }
+        </div>
+    </div>
+</section>

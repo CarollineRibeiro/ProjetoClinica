@@ -151,6 +151,9 @@
     <Compile Include="Controllers\ClinicasController.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\PacientesController.cs" />
+    <Compile Include="DAO\ClinicaDAO.cs" />
+    <Compile Include="DAO\ClinicaLoginDAO.cs" />
+    <Compile Include="DAO\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -7,17 +7,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoClinica.Models;
+using ProjetoClinica.DAO;
 
 namespace ProjetoClinica.Controllers
 {
     public class ClinicasController : Controller
     {
+        public static Clinica c = new Clinica();
+
+
         private Entities db = new Entities();
 
         // GET: Clinicas
         public ActionResult Index()
         {
-            return View(db.Clinicas.ToList());
+            c = 
+            return View();
         }
 
         // GET: Clinicas/Details/5
@@ -140,7 +145,12 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                c = ClinicaDAO.LoginUsuario(clinica);
+                if (c != null)
+                {
+                    ClinicaDAO.AdicionarLogin(c);
+                    return RedirectToAction("Index");
+                }
             }
             return View(clinica);
         }
