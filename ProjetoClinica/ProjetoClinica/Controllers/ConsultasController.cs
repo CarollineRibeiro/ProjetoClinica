@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoClinica.Models;
+using ProjetoClinica.DAO;
 
 namespace ProjetoClinica.Controllers
 {
@@ -17,7 +18,7 @@ namespace ProjetoClinica.Controllers
         // GET: Consultas
         public ActionResult Index()
         {
-            return View(db.Consultas.ToList());
+            return View(ConsultaDAO.RetornarListaConsultasDaClinicaLogada());
         }
 
         // GET: Consultas/Details/5

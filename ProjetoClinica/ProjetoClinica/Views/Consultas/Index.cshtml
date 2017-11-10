@@ -2,15 +2,28 @@
 
 @{
     ViewBag.Title = "Index";
+
+    ProjetoClinica.Models.Clinica clinica = new ProjetoClinica.Models.Clinica();
+    clinica = ProjetoClinica.DAO.ClinicaLoginDAO.RetornarClinicaLogada();
 }
 
-<h2>Index</h2>
+<h2>Lista de Consultas - Clinica <h3>Bem Vindo - Clinica @clinica.ClinicaNome</h3>
+</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinica.ClinicaNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinica.ClinicaMedico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.PacienteNome)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.DataConsulta)
         </th>
@@ -20,12 +33,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Clinica.ClinicaNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clinica.ClinicaMedico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.PacienteNome)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.DataConsulta)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ConsultaId }) |
+            @Html.ActionLink("Editar", "Edit", new { id=item.ConsultaId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ConsultaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ConsultaId })
+            @Html.ActionLink("Cancelar", "Delete", new { id=item.ConsultaId })
         </td>
     </tr>
 }

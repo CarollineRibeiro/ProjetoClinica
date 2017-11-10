@@ -22,7 +22,7 @@ namespace ProjetoClinica.Controllers
         public ActionResult Index()
         {
             Clinica cliente = new Clinica();
-            cliente = ClinicaLoginDAO.RetornarUsuarioLogado();
+            cliente = ClinicaLoginDAO.RetornarClinicaLogada();
             return View(cliente);
         }
 
@@ -58,7 +58,7 @@ namespace ProjetoClinica.Controllers
             {
                 db.Clinicas.Add(clinica);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             return View(clinica);

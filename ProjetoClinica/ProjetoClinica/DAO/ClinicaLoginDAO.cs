@@ -11,7 +11,7 @@ namespace ProjetoClinica.DAO
         private static Entities entities = Singleton.Instance.Entities;
 
         //RETORNAR CLINICA LOGADO
-        public static Clinica RetornarUsuarioLogado() {
+        public static Clinica RetornarClinicaLogada() {
             try {
                 foreach (ClinicaLogin temp in RetornarListaClinicasLogadas()) {
                     if (temp.ClinicaLoginSessao.Equals(RetornarIdSessao())) {
