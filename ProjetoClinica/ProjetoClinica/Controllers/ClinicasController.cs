@@ -21,8 +21,9 @@ namespace ProjetoClinica.Controllers
         // GET: Clinicas
         public ActionResult Index()
         {
-            c = 
-            return View();
+            Clinica cliente = new Clinica();
+            cliente = ClinicaLoginDAO.RetornarUsuarioLogado();
+            return View(cliente);
         }
 
         // GET: Clinicas/Details/5
