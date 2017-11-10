@@ -4,12 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create", "Consultas")
-</p>
+<h2>Página Inicial</h2>
 
 <section>
-    <h3>Bem Vindo - @Html.DisplayFor(model => model.ClinicaNome)</h3>
+    <h3>Bem Vindo - Clinica @Html.DisplayFor(model => model.ClinicaNome)</h3>
+    @Html.ActionLink("Consultas", "Index", "Consultas")
 </section>
