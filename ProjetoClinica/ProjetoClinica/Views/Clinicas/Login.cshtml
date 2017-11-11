@@ -4,33 +4,37 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<br />
+<h2 style="text-align:center;">Login</h2>
+<br />
 
-<section id="Login">
-    <div class="row">
-        <!--ESPAÇAMENTO ESQUERDA-->
-        <div class="col s12 m12 l8">
-            <br />
-        </div>
-
-        <!--FORMULARIO DE LOGIN-->
-        <div class="col s12 m12 l4">
+<section>
+    <div class="container" style="width: 500px;">
+        <div class="well bs-component" style="background-color: rgba(120, 194, 173, 0.35); box-shadow: 1px 2px 1px;">
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
 
-                @Html.ValidationSummary(true, "", new { @class = "text-red" })
-
-                <label>CPF</label>
-                    @Html.EditorFor(model => model.Login)
-
-                    <label>Senha</label>
-                    @Html.PasswordFor(model => model.Senha)
-
-                    <input type="submit" name="btnEntrar" value="Entrar" class="btn" />
-                    <br/>
-                    <a href="@Url.Action("Create", "Clinicas")"><p>Cadastre-se</p></a>
+                <div class="form-horizontal" style="text-align:center;">
+                    @Html.ValidationSummary(true, "", new { @class = "text-red" })
+                    <fieldset>
+                     
+                        <div class="form-group">
+                            <label>Login</label> <br />
+                            @Html.EditorFor(model => model.Login)
+                        </div>
+                        <div class="form-group">
+                            <label>Senha</label> <br />
+                            @Html.EditorFor(model => model.Senha)
+                        </div>
+                        
+                            <input type="submit" name="btnEntrar" value="Entrar" class="btn btn-primary" />
+                      
+                    </fieldset>
+                        
+                </div>
             }
         </div>
     </div>
+                 <a href="@Url.Action("Create", "Clinicas")"><p style="text-align:center;">Não é cadastrado? Cadastre-se agora!</p></a>
 </section>
