@@ -152,6 +152,7 @@
     <Compile Include="DAO\ClinicaDAO.cs" />
     <Compile Include="DAO\ClinicaLoginDAO.cs" />
     <Compile Include="DAO\ConsultaDAO.cs" />
+    <Compile Include="DAO\PacienteDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

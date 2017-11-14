@@ -15,8 +15,7 @@ namespace ProjetoClinica.Controllers
     {
         public static Clinica c = new Clinica();
 
-
-        private Entities db = new Entities();
+        Entities db = Singleton.Instance.Entities;
 
         // GET: Clinicas
         public ActionResult Index()
@@ -56,9 +55,26 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Clinicas.Add(clinica);
-                db.SaveChanges();
-                return RedirectToAction("Login");
+                try
+                {
+                    if (ClinicaDAO.BuscandoClinicaPorLogin(clinica) == null)
+                    {
+                        db.Clinicas.Add(clinica);
+                        db.SaveChanges();
+                        return RedirectToAction("Login");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Login ja Existe!");
+                        return RedirectToAction("Create");
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    throw e;
+                }
+
             }
 
             return View(clinica);
@@ -121,14 +137,14 @@ namespace ProjetoClinica.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
         // GET: Clinicas/Login

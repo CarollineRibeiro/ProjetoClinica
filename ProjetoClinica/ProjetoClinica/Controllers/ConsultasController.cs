@@ -13,7 +13,7 @@ namespace ProjetoClinica.Controllers
 {
     public class ConsultasController : Controller
     {
-        private Entities db = new Entities();
+        private Entities db = Singleton.Instance.Entities;
 
         // GET: Consultas
         public ActionResult Index()
@@ -52,6 +52,7 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
+                consulta.Clinica = ClinicaLoginDAO.RetornarClinicaLogada();
                 db.Consultas.Add(consulta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,7 +81,7 @@ namespace ProjetoClinica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ConsultaId,DataConsulta")] Consulta consulta)
+        public ActionResult Edit([Bind(Include = "DataConsulta")] Consulta consulta)
         {
             if (ModelState.IsValid)
             {
@@ -117,13 +118,13 @@ namespace ProjetoClinica.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

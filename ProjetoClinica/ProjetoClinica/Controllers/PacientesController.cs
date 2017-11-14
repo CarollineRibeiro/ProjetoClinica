@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoClinica.Models;
+using ProjetoClinica.DAO;
 
 namespace ProjetoClinica.Controllers
 {
     public class PacientesController : Controller
     {
-        private Entities db = new Entities();
+        private Entities db = Singleton.Instance.Entities;
 
         // GET: Pacientes
         public ActionResult Index()
