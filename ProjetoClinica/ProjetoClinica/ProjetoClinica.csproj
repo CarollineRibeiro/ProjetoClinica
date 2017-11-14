@@ -156,9 +156,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711091309174_CriarBanco.cs" />
-    <Compile Include="Migrations\201711091309174_CriarBanco.Designer.cs">
-      <DependentUpon>201711091309174_CriarBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201711141133194_arrumarModelConsulta.cs" />
+    <Compile Include="Migrations\201711141133194_arrumarModelConsulta.Designer.cs">
+      <DependentUpon>201711141133194_arrumarModelConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clinica.cs" />
@@ -182,7 +182,6 @@
     <Content Include="Views\Clinicas\Edit.cshtml" />
     <Content Include="Views\Clinicas\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Consultas\Create.cshtml" />
     <Content Include="Views\Consultas\Delete.cshtml" />
     <Content Include="Views\Consultas\Details.cshtml" />
     <Content Include="Views\Consultas\Edit.cshtml" />
@@ -193,6 +192,7 @@
     <Content Include="Views\Pacientes\Edit.cshtml" />
     <Content Include="Views\Pacientes\Index.cshtml" />
     <Content Include="Views\Clinicas\Login.cshtml" />
+    <Content Include="Views\Consultas\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,8 +204,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711091309174_CriarBanco.resx">
-      <DependentUpon>201711091309174_CriarBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711141133194_arrumarModelConsulta.resx">
+      <DependentUpon>201711141133194_arrumarModelConsulta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

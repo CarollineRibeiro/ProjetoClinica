@@ -39,6 +39,7 @@ namespace ProjetoClinica.Controllers
         // GET: Consultas/Create
         public ActionResult Create()
         {
+            ViewBag.PacienteId = new SelectList(db.Pacientes, "PacienteId", "PacienteNome");
             return View();
         }
 
@@ -47,7 +48,7 @@ namespace ProjetoClinica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ConsultaId,DataConsulta")] Consulta consulta)
+        public ActionResult Create([Bind(Include = "ConsultaId, PacienteId, DataConsulta")] Consulta consulta)
         {
             if (ModelState.IsValid)
             {

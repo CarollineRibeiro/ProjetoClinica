@@ -14,6 +14,7 @@ namespace ProjetoClinica.Models
         public int ConsultaId { get; set; }
         public Paciente Paciente { get; set; }
         public Clinica Clinica { get; set; }
+        public int PacienteId { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Data da Consulta")]
