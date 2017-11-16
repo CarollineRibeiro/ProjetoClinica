@@ -18,5 +18,17 @@ namespace ProjetoClinica.DAO {
                 return null;
             }
         }
+
+        // BUSCANDO CONSULTA POR DATA
+        public static Consulta BuscandoConsultaPorData(Consulta consulta)
+        {
+            return entities.Consultas.FirstOrDefault(x => x.DataConsulta.Equals(consulta.DataConsulta));
+        }
+
+        // BUSCANDO CONSULTA POR PACIENTE
+        public static Consulta BuscandoConsultaPorPaciente(Consulta consulta)
+        {
+            return entities.Consultas.FirstOrDefault(x => x.PacienteId.Equals(consulta.PacienteId));
+        }
     }
 }

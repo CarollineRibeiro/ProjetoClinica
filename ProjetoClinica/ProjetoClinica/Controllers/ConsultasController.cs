@@ -52,10 +52,18 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                consulta.Clinica = ClinicaLoginDAO.RetornarClinicaLogada();
-                db.Consultas.Add(consulta);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ConsultaDAO.BuscandoConsultaPorData(consulta) == null && ConsultaDAO.BuscandoConsultaPorPaciente(consulta) == null)
+                {
+                    consulta.Clinica = ClinicaLoginDAO.RetornarClinicaLogada();
+                    db.Consultas.Add(consulta);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Paciente ja tem uma consulta nesta data!");
+                return View("Create");
             }
 
             return View(consulta);

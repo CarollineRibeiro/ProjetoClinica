@@ -51,9 +51,18 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Pacientes.Add(paciente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (PacienteDAO.BuscaPacientePorCPF(paciente) == null)
+                {
+                    db.Pacientes.Add(paciente);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Ja existe um paciente com esse cpf cadastrado!");
+                    return View("Create");
+                }
+
             }
 
             return View(paciente);

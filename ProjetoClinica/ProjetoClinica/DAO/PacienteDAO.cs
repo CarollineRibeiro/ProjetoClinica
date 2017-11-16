@@ -16,5 +16,12 @@ namespace ProjetoClinica.DAO
 
             return entities.Pacientes.Find(id);
         }
+
+        // BUSCA PACIENTE POR CPF
+        public static Paciente BuscaPacientePorCPF(Paciente paciente)
+        {
+            return entities.Pacientes.FirstOrDefault(x => x.PacienteCPF.Equals(paciente.PacienteCPF));
+        }
+ 
     }
 }
