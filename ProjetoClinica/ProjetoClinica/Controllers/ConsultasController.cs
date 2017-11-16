@@ -13,7 +13,7 @@ namespace ProjetoClinica.Controllers
 {
     public class ConsultasController : Controller
     {
-        private Entities db = Singleton.Instance.Entities;
+        private static Entities db = Singleton.Instance.Entities;
 
         // GET: Consultas
         public ActionResult Index()
@@ -52,18 +52,17 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ConsultaDAO.BuscandoConsultaPorData(consulta) == null && ConsultaDAO.BuscandoConsultaPorPaciente(consulta) == null)
+                try
                 {
                     consulta.Clinica = ClinicaLoginDAO.RetornarClinicaLogada();
                     db.Consultas.Add(consulta);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-            }
-            else
-            {
-                ModelState.AddModelError("", "Paciente ja tem uma consulta nesta data!");
-                return View("Create");
+                catch (Exception e)
+                {
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(consulta);
@@ -89,7 +88,7 @@ namespace ProjetoClinica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DataConsulta")] Consulta consulta)
+        public ActionResult Edit([Bind(Include = "ConsultaId,DataConsulta")] Consulta consulta)
         {
             if (ModelState.IsValid)
             {

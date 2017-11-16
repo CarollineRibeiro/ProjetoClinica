@@ -7,13 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoClinica.Models;
-using ProjetoClinica.DAO;
 
 namespace ProjetoClinica.Controllers
 {
     public class PacientesController : Controller
     {
-        private Entities db = Singleton.Instance.Entities;
+        private Entities db = new Entities();
 
         // GET: Pacientes
         public ActionResult Index()
@@ -51,18 +50,9 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (PacienteDAO.BuscaPacientePorCPF(paciente) == null)
-                {
-                    db.Pacientes.Add(paciente);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Ja existe um paciente com esse cpf cadastrado!");
-                    return View("Create");
-                }
-
+                db.Pacientes.Add(paciente);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             return View(paciente);

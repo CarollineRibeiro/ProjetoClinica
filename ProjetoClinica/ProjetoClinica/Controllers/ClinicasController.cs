@@ -15,7 +15,8 @@ namespace ProjetoClinica.Controllers
     {
         public static Clinica c = new Clinica();
 
-        Entities db = Singleton.Instance.Entities;
+
+        private Entities db = new Entities();
 
         // GET: Clinicas
         public ActionResult Index()
@@ -55,26 +56,9 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    if (ClinicaDAO.BuscandoClinicaPorLogin(clinica) == null)
-                    {
-                        db.Clinicas.Add(clinica);
-                        db.SaveChanges();
-                        return RedirectToAction("Login");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Login ja Existe!");
-                        return RedirectToAction("Create");
-                    }
-                }
-                catch (Exception e)
-                {
-
-                    throw e;
-                }
-
+                db.Clinicas.Add(clinica);
+                db.SaveChanges();
+                return RedirectToAction("Login");
             }
 
             return View(clinica);
@@ -104,9 +88,16 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(clinica).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(clinica).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("Create");
+                }
             }
             return View(clinica);
         }
@@ -137,14 +128,14 @@ namespace ProjetoClinica.Controllers
             return RedirectToAction("Index");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
 
         // GET: Clinicas/Login

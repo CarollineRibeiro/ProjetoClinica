@@ -9,7 +9,6 @@ namespace ProjetoClinica.DAO
     public class ClinicaLoginDAO
     {
         private static Entities entities = Singleton.Instance.Entities;
-
         //RETORNAR CLINICA LOGADO
         public static Clinica RetornarClinicaLogada() {
             try {

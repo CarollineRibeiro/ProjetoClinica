@@ -51,11 +51,7 @@ namespace ProjetoClinica.DAO
             }
         }
 
-        // BUSCANDO CLINICA POR LOGIN
-        public static Clinica BuscandoClinicaPorLogin(Clinica clinica)
-        {
-            return entities.Clinicas.FirstOrDefault(x => x.Login.Equals(clinica.Login));
-        }
+
 
     }
 }
