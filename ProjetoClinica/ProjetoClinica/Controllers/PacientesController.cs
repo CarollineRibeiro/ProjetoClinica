@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoClinica.Models;
+using ProjetoClinica.DAO;
 
 namespace ProjetoClinica.Controllers
 {
@@ -17,7 +18,7 @@ namespace ProjetoClinica.Controllers
         // GET: Pacientes
         public ActionResult Index()
         {
-            return View(db.Pacientes.ToList());
+            return View(PacienteDAO.ListaDePacientesDaClinicaLogada());
         }
 
         // GET: Pacientes/Details/5
@@ -50,11 +51,9 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Pacientes.Add(paciente);
-                db.SaveChanges();
+                PacienteDAO.AdicionaPaciente(paciente);
                 return RedirectToAction("Index");
             }
-
             return View(paciente);
         }
 

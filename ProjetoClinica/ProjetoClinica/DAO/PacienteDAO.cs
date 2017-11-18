@@ -8,12 +8,26 @@ namespace ProjetoClinica.DAO {
     public class PacienteDAO {
         private static Entities entities = Singleton.Instance.Entities;
 
+        //ADICIONA PACIENTE
+        public static bool AdicionaPaciente(Paciente paciente) {
+            try {
+                Clinica c = new Clinica();
+                c = ClinicaLoginDAO.RetornarClinicaLogada();
+                paciente.ClinicaId = c.ClinicaId;
+                entities.Pacientes.Add(paciente);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
         //RETORNA LISTA DE PACIENTES DA CLINICA LOGADA - FALTA TERMINAR
         public static List<Paciente> ListaDePacientesDaClinicaLogada() {
             try {
                 Clinica clinica = new Clinica();
                 clinica = ClinicaLoginDAO.RetornarClinicaLogada();
-                return null;
+                return entities.Pacientes.Where(x => x.ClinicaId.Equals(clinica.ClinicaId)).ToList();
             }
             catch (Exception e) {
                 return null;

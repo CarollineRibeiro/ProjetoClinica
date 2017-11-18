@@ -3,7 +3,7 @@ namespace ProjetoClinica.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriarBanco : DbMigration
+    public partial class ClinicaNoPacienteComID : DbMigration
     {
         public override void Up()
         {
@@ -30,6 +30,19 @@ namespace ProjetoClinica.Migrations
                 .PrimaryKey(t => t.ClinicaId);
             
             CreateTable(
+                "dbo.Pacientes",
+                c => new
+                    {
+                        PacienteId = c.Int(nullable: false, identity: true),
+                        PacienteNome = c.String(nullable: false),
+                        PacienteCPF = c.String(nullable: false),
+                        ClinicaId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.PacienteId)
+                .ForeignKey("dbo.Clinicas", t => t.ClinicaId, cascadeDelete: true)
+                .Index(t => t.ClinicaId);
+            
+            CreateTable(
                 "dbo.Consultas",
                 c => new
                     {
@@ -44,26 +57,18 @@ namespace ProjetoClinica.Migrations
                 .Index(t => t.PacienteId)
                 .Index(t => t.Clinica_ClinicaId);
             
-            CreateTable(
-                "dbo.Pacientes",
-                c => new
-                    {
-                        PacienteId = c.Int(nullable: false, identity: true),
-                        PacienteNome = c.String(nullable: false),
-                        PacienteCPF = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.PacienteId);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Consultas", "PacienteId", "dbo.Pacientes");
             DropForeignKey("dbo.Consultas", "Clinica_ClinicaId", "dbo.Clinicas");
+            DropForeignKey("dbo.Pacientes", "ClinicaId", "dbo.Clinicas");
             DropIndex("dbo.Consultas", new[] { "Clinica_ClinicaId" });
             DropIndex("dbo.Consultas", new[] { "PacienteId" });
-            DropTable("dbo.Pacientes");
+            DropIndex("dbo.Pacientes", new[] { "ClinicaId" });
             DropTable("dbo.Consultas");
+            DropTable("dbo.Pacientes");
             DropTable("dbo.Clinicas");
             DropTable("dbo.ClinicaLogins");
         }

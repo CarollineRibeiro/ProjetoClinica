@@ -157,9 +157,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711181510365_CriarBanco.cs" />
-    <Compile Include="Migrations\201711181510365_CriarBanco.Designer.cs">
-      <DependentUpon>201711181510365_CriarBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201711181844249_ClinicaNoPacienteComID.cs" />
+    <Compile Include="Migrations\201711181844249_ClinicaNoPacienteComID.Designer.cs">
+      <DependentUpon>201711181844249_ClinicaNoPacienteComID.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clinica.cs" />
@@ -205,8 +205,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711181510365_CriarBanco.resx">
-      <DependentUpon>201711181510365_CriarBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711181844249_ClinicaNoPacienteComID.resx">
+      <DependentUpon>201711181844249_ClinicaNoPacienteComID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

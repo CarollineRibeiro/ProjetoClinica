@@ -40,7 +40,8 @@ namespace ProjetoClinica.Controllers
         public ActionResult Create()
         {
             List<Paciente> ListaPaciente = new List<Paciente>();
-            ViewBag.PacienteId = new SelectList(db.Pacientes, "PacienteId", "PacienteNome");
+            ListaPaciente = PacienteDAO.ListaDePacientesDaClinicaLogada();
+            ViewBag.PacienteId = new SelectList(ListaPaciente, "PacienteId", "PacienteNome");
             return View();
         }
 

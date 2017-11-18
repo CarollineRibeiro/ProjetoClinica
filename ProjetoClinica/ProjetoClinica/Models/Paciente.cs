@@ -20,5 +20,7 @@ namespace ProjetoClinica.Models
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "CPF")]
         public string PacienteCPF { get; set; }
+
+        public int ClinicaId { get; set; }
     }
 }
