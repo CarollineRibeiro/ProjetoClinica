@@ -56,11 +56,15 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Clinicas.Add(clinica);
-                db.SaveChanges();
-                return RedirectToAction("Login");
+                Clinica cli = new Clinica();
+                cli = ClinicaDAO.LoginExistente(clinica);
+                if (cli == null) {
+                    db.Clinicas.Add(clinica);
+                    db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
             }
-
+            ViewBag.Mensagem = "ERRO - O login inserido já está sendo utilizado por outra clínica";
             return View(clinica);
         }
 

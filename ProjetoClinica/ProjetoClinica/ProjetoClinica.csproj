@@ -152,13 +152,14 @@
     <Compile Include="DAO\ClinicaDAO.cs" />
     <Compile Include="DAO\ClinicaLoginDAO.cs" />
     <Compile Include="DAO\ConsultaDAO.cs" />
+    <Compile Include="DAO\PacienteDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711161227127_CriarBanco.cs" />
-    <Compile Include="Migrations\201711161227127_CriarBanco.Designer.cs">
-      <DependentUpon>201711161227127_CriarBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201711181510365_CriarBanco.cs" />
+    <Compile Include="Migrations\201711181510365_CriarBanco.Designer.cs">
+      <DependentUpon>201711181510365_CriarBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clinica.cs" />
@@ -204,8 +205,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711161227127_CriarBanco.resx">
-      <DependentUpon>201711161227127_CriarBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711181510365_CriarBanco.resx">
+      <DependentUpon>201711181510365_CriarBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

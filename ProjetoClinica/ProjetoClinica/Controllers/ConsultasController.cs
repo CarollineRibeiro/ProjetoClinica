@@ -39,6 +39,7 @@ namespace ProjetoClinica.Controllers
         // GET: Consultas/Create
         public ActionResult Create()
         {
+            List<Paciente> ListaPaciente = new List<Paciente>();
             ViewBag.PacienteId = new SelectList(db.Pacientes, "PacienteId", "PacienteNome");
             return View();
         }

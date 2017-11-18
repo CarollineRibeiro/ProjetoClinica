@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
+    string mensagem = ViewBag.Mensagem;
 }
 
 <br />
@@ -36,7 +37,7 @@
             @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                <p style="color: red">@ViewBag.Mensagem</p>
             </div>
         </div>
 

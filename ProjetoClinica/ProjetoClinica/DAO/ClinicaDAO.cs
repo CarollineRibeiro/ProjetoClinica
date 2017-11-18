@@ -51,7 +51,24 @@ namespace ProjetoClinica.DAO
             }
         }
 
+        //PESQUISA LOGIN REPETIDO
+        public static Clinica LoginExistente(Clinica clinica) {
+            try {
+                return entities.Clinicas.FirstOrDefault(x => x.Login.Equals(clinica.Login));
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
 
-
+        //LISTA DE CLINICAS
+        public static List<Clinica> ListaDeClinicas() {
+            try {
+                return entities.Clinicas.ToList();
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
     }
 }
