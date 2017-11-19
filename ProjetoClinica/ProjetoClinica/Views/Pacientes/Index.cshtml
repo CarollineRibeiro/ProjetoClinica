@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ProjetoClinica.Models.Paciente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pacientes";
 }
-
-<h2>Index</h2>
+<br />
+<h2 style="text-align:center;">Pacientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar novo", "Create", "Paciente", new {@class="btn btn-primary btn-sm"})
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.PacienteCPF)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PacienteId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PacienteId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PacienteId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.PacienteId }, new {@class="btn btn-warning btn-sm"}) 
+            @Html.ActionLink("Detalhes", "Details", new { id=item.PacienteId }, new { @class = "btn btn-info btn-sm" }) 
+            @Html.ActionLink("Remover", "Delete", new { id=item.PacienteId }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>
 }

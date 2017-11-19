@@ -4,10 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<br />
+<h4>Detalhes do paciente @Html.DisplayFor(model => model.PacienteNome) </h4>
 
 <div>
-    <h4>Paciente</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,6 +30,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PacienteId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.PacienteId }, new {@class="btn btn-primary"}) 
+    @Html.ActionLink("Retornar", "Index", "Pacientes", new {@class="btn btn-warning"})
 </p>
