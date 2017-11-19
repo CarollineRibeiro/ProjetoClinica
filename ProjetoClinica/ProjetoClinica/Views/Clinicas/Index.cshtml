@@ -6,13 +6,25 @@
     clinica = Model;
 }
 
+<br />
+<br />
+<div class="card">
+   
+    <h3 class="card-header">Bem vindo, @Html.DisplayFor(model => model.ClinicaNome) </h3>
+    <div class="card-body">
+        <h5 class="card-title"> Dr. @Html.DisplayFor(model => model.ClinicaMedico)</h5>
+    </div>
+    <img style="height: 200px; width: 100%; display: block;" src="http://www.hospitalsantahelenamg.com.br/base/wp-content/uploads/2014/05/Banner.png" alt="Card image">
 
-
-<section>
-    <br />
-    <br />
-    <h3>Bem Vindo - Clinica @Html.DisplayFor(model => model.ClinicaNome)</h3>
-    @Html.ActionLink("Editar Informações", "Edit", new { id = clinica.ClinicaId }, new { target = "_blank" })
-    <br /><br />
-    @Html.ActionLink("Consultas", "Index", "Consultas")
-</section>
+     <div class="card-body">
+        <div>
+            <label class="btn btn-outline-primary">
+               @Html.ActionLink("Editar Informações", "Edit", new { id = clinica.ClinicaId }, new { target = "_blank" })
+            </label>
+            <label class="btn btn-outline-primary">
+               @Html.ActionLink("Consultas", "Index", "Consultas")
+            </label>
+          
+        </div>    
+    </div>
+</div>

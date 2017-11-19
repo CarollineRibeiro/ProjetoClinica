@@ -157,9 +157,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711181844249_ClinicaNoPacienteComID.cs" />
-    <Compile Include="Migrations\201711181844249_ClinicaNoPacienteComID.Designer.cs">
-      <DependentUpon>201711181844249_ClinicaNoPacienteComID.cs</DependentUpon>
+    <Compile Include="Migrations\201711190023539_addDataBase.cs" />
+    <Compile Include="Migrations\201711190023539_addDataBase.Designer.cs">
+      <DependentUpon>201711190023539_addDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clinica.cs" />
@@ -205,8 +205,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711181844249_ClinicaNoPacienteComID.resx">
-      <DependentUpon>201711181844249_ClinicaNoPacienteComID.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711190023539_addDataBase.resx">
+      <DependentUpon>201711190023539_addDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -220,7 +220,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52833</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

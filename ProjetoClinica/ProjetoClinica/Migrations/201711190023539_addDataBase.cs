@@ -3,7 +3,7 @@ namespace ProjetoClinica.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ClinicaNoPacienteComID : DbMigration
+    public partial class addDataBase : DbMigration
     {
         public override void Up()
         {

@@ -7,13 +7,13 @@ namespace ProjetoClinica.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ClinicaNoPacienteComID : IMigrationMetadata
+    public sealed partial class addDataBase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ClinicaNoPacienteComID));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711181844249_ClinicaNoPacienteComID"; }
+            get { return "201711190023539_addDataBase"; }
         }
         
         string IMigrationMetadata.Source
