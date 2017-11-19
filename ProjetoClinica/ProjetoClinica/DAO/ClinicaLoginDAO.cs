@@ -55,5 +55,11 @@ namespace ProjetoClinica.DAO
                 return null;
             }
         } 
+
+        //ATRIBUI UM NOVO GUID PRA SESSÃO
+        public static void NovoGuidPraSessao() {
+            Guid guid = Guid.NewGuid();
+            HttpContext.Current.Session["Sessao"] = guid.ToString();
+        }
     }
 }

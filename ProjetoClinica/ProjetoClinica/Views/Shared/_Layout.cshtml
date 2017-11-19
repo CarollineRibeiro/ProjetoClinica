@@ -19,6 +19,13 @@
             text-decoration: none;
             color: white;
         }
+
+        .logoff{
+            background-color: red;
+            padding: 0;
+            padding: 0 10px;
+            margin-left: 50px;
+        }
     </style>
 </head>
 <body>
@@ -37,13 +44,14 @@
                     @Html.ActionLink("Pacientes", "Index", "Pacientes")
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Consultas", "Index", "Clinicas")
+                    @Html.ActionLink("Consultas", "Index", "Consultas")
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Logoff", "Login", "Clinicas", new { @class="logoff"})
                 </li>
             </ul>
-
         </div>
     </nav>
-
     <div class="container body-content">
         @RenderBody()
         <hr />

@@ -145,6 +145,7 @@ namespace ProjetoClinica.Controllers
         // GET: Clinicas/Login
         public ActionResult Login()
         {
+            ClinicaLoginDAO.NovoGuidPraSessao();
             return View();
         }
 
@@ -164,6 +165,7 @@ namespace ProjetoClinica.Controllers
                     return RedirectToAction("Index");
                 }
             }
+            ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
             return View(clinica);
         }
     }
