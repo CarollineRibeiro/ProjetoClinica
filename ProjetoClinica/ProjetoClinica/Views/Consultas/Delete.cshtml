@@ -1,32 +1,43 @@
 ﻿@model ProjetoClinica.Models.Consulta
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Remover consulta";
 }
 
-<h2>Delete</h2>
+<br />
+<h2 style="text-align:center;">Remover consulta</h2>
+<br />
+<h5>Você tem certeza que deseja remover esta consulta?</h5>
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
-    <h4>Consulta</h4>
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DataConsulta)
-        </dt>
+    <div class="card border-primary">
+        <div class="card-body">
+            <blockquote class="card-blockquote">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataConsulta)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataConsulta)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.DataConsulta)
+                    </dd>
 
-    </dl>
+                </dl>
+            </blockquote>
+        </div>
+    </div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit"  value="Sim" class="btn btn-primary" /> 
+            @Html.ActionLink("Retornar", "Index", "Consulta", new { @class = "btn btn-warning" })
         </div>
     }
 </div>
+

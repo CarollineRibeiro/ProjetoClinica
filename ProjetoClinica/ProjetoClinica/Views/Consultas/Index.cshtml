@@ -1,16 +1,18 @@
 ﻿@model IEnumerable<ProjetoClinica.Models.Consulta>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Consultas";
 
     ProjetoClinica.Models.Clinica clinica = new ProjetoClinica.Models.Clinica();
     clinica = ProjetoClinica.DAO.ClinicaLoginDAO.RetornarClinicaLogada();
 }
 
+<br />
 <h2>Lista de Consultas </h2>
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agendar consulta", "Create", "Consulta", new {@class="btn btn-info btn-sm"})
 </p>
 <table class="table">
     <tr>
@@ -44,9 +46,9 @@
             @Html.DisplayFor(modelItem => item.DataConsulta)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ConsultaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ConsultaId }) |
-            @Html.ActionLink("Cancelar", "Delete", new { id=item.ConsultaId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.ConsultaId }, new {@class="btn btn-warning btn-sm"}) 
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ConsultaId }, new { @class = "btn btn-info btn-sm" }) 
+            @Html.ActionLink("Remover", "Delete", new { id=item.ConsultaId }, new { @class = "btn btn-danger btn-sm" })
         </td>
     </tr>
 }
