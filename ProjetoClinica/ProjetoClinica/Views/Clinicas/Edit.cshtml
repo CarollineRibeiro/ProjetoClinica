@@ -1,10 +1,12 @@
 ﻿@model ProjetoClinica.Models.Clinica
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
-<h2>Edit</h2>
+<br/>
+
+<h2 style="text-align:center;">Editar</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +14,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Clinica</h4>
+       
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ClinicaId)
@@ -51,14 +53,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salvar alterações" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retornar", "Index", "Clinica", new {@class="btn btn-outline-info btn-sm"})
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
