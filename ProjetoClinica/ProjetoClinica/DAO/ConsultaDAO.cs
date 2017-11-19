@@ -18,5 +18,15 @@ namespace ProjetoClinica.DAO {
                 return null;
             }
         }
+
+        //PESQUISAR CONSULTA POR ID
+        public static Consulta RetornarConsultaPorId(int id) {
+            try {
+                return entities.Consultas.Find(id);
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
     }
 }

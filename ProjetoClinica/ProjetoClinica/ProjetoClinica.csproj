@@ -161,6 +161,10 @@
     <Compile Include="Migrations\201711190023539_addDataBase.Designer.cs">
       <DependentUpon>201711190023539_addDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711192107208_CriarBanco.cs" />
+    <Compile Include="Migrations\201711192107208_CriarBanco.Designer.cs">
+      <DependentUpon>201711192107208_CriarBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clinica.cs" />
     <Compile Include="Models\ClinicaLogin.cs" />
@@ -207,6 +211,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711190023539_addDataBase.resx">
       <DependentUpon>201711190023539_addDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711192107208_CriarBanco.resx">
+      <DependentUpon>201711192107208_CriarBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

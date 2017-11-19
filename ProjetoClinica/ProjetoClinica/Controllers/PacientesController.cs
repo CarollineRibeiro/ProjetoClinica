@@ -81,6 +81,9 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
+                Clinica c = new Clinica();
+                c = ClinicaLoginDAO.RetornarClinicaLogada();
+                paciente.ClinicaId = c.ClinicaId;
                 db.Entry(paciente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

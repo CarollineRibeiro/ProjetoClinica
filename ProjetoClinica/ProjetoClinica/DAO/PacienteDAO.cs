@@ -43,5 +43,15 @@ namespace ProjetoClinica.DAO {
                 return null;
             }
         }
+
+        //RETORNA PACIENTE POR ID
+        public static Paciente RetornaPacientePorId(int id) {
+            try {
+                return entities.Pacientes.Find(id);
+            }
+            catch (Exception e) {
+                return null;
+            }
+        }
     }
 }
