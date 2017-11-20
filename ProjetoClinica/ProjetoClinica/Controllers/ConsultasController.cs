@@ -95,20 +95,30 @@ namespace ProjetoClinica.Controllers
             if (ModelState.IsValid)
             {
 
-                Console.WriteLine(consulta.DataConsulta);
-                Consulta c = new Consulta();
-                c = ConsultaDAO.RetornarConsultaPorId(consulta.ConsultaId);
-                consulta.PacienteId = c.PacienteId;
+                Consulta consultaAux = ConsultaDAO.RetornarConsultaPorId(consulta.ConsultaId);
+                consultaAux.DataConsulta = consulta.DataConsulta;
 
-                consulta.Paciente = PacienteDAO.RetornaPacientePorId(c.PacienteId);
+                //Console.WriteLine(consulta.DataConsulta);
+                //Consulta c = new Consulta();
+                //c = ConsultaDAO.RetornarConsultaPorId(consulta.ConsultaId);
+                //consulta.PacienteId = c.PacienteId;
 
-                Clinica clinica = new Clinica();
-                clinica = ClinicaLoginDAO.RetornarClinicaLogada();
-                consulta.Clinica = clinica;
+                //consulta.Paciente = PacienteDAO.RetornaPacientePorId(c.PacienteId);
 
-                db.Entry(consulta).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //Clinica clinica = new Clinica();
+                //clinica = ClinicaLoginDAO.RetornarClinicaLogada();
+                //consulta.Clinica = clinica;
+                try
+                {
+                    db.Entry(consultaAux).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception )
+                {
+                    ViewBag.Erro = "Não foi possível alterar a Data da Consulta!";
+                    return RedirectToAction("Index");
+                }
             }
             return View(consulta);
         }
