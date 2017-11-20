@@ -28,6 +28,12 @@ namespace ProjetoClinica.DAO
             }
         }
 
+        // RETORNA CLINICA PELO ID
+        public static Clinica RetornaClinicaPorId(int id)
+        {
+            return entities.Clinicas.Find(id);
+        }
+
         //PESQUISA LOGIN DO USUARIO
         public static Clinica LoginUsuario(Clinica clinica)
         {

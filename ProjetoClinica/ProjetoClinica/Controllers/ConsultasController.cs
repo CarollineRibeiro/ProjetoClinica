@@ -18,6 +18,9 @@ namespace ProjetoClinica.Controllers
         // GET: Consultas
         public ActionResult Index()
         {
+            List<Paciente> ListaPaciente = new List<Paciente>();
+            ListaPaciente = PacienteDAO.ListaDePacientesDaClinicaLogada();
+            ViewBag.PacienteId = new SelectList(ListaPaciente, "PacienteId", "PacienteNome");
             return View(ConsultaDAO.RetornarListaConsultasDaClinicaLogada());
         }
 

@@ -13,7 +13,7 @@ namespace ProjetoClinica.Controllers
 {
     public class PacientesController : Controller
     {
-        private Entities db = new Entities();
+        private Entities db = Singleton.Instance.Entities;
 
         // GET: Pacientes
         public ActionResult Index()
@@ -81,12 +81,28 @@ namespace ProjetoClinica.Controllers
         {
             if (ModelState.IsValid)
             {
-                Clinica c = new Clinica();
-                c = ClinicaLoginDAO.RetornarClinicaLogada();
-                paciente.ClinicaId = c.ClinicaId;
-                db.Entry(paciente).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Paciente pacienteAux = PacienteDAO.RetornaPacientePorId(paciente.PacienteId);
+                pacienteAux.PacienteNome = paciente.PacienteNome;
+                pacienteAux.PacienteCPF = paciente.PacienteCPF;
+
+                //Clinica c = new Clinica();
+                //c = ClinicaLoginDAO.RetornarClinicaLogada();
+                //paciente.ClinicaId = c.ClinicaId;
+                //db.Entry(paciente).State = EntityState.Modified;
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+
+                try
+                {
+                    db.Entry(pacienteAux).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    ViewBag.Erro = "Erro ao Editar Informações!";
+                    return RedirectToAction("Edit"); 
+                }
             }
             return View(paciente);
         }
@@ -117,13 +133,13 @@ namespace ProjetoClinica.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
