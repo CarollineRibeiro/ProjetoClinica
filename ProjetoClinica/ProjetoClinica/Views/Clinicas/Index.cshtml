@@ -2,8 +2,8 @@
 
 @{
     ViewBag.Title = "Home";
-    ProjetoClinica.Models.Clinica clinica = new ProjetoClinica.Models.Clinica();
-    clinica = Model;
+    //ProjetoClinica.Models.Clinica clinica = new ProjetoClinica.Models.Clinica();
+    //clinica = Model;
 }
 
 <br />
@@ -19,7 +19,7 @@
      <div class="card-body">
         <div>
             <label class="btn btn-outline-primary">
-               @Html.ActionLink("Editar Informações", "Edit", "Clinicas", new { id = clinica.ClinicaId }, new { target = "_blank" })
+               @Html.ActionLink("Editar Informações", "Edit", "Clinicas", new { id = Model.ClinicaId }, new { target = "_blank" })
             </label>
             <label class="btn btn-outline-primary">
                @Html.ActionLink("Consultas", "Index", "Consultas")
