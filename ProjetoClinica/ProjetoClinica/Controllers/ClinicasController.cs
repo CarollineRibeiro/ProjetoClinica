@@ -102,7 +102,7 @@ namespace ProjetoClinica.Controllers
                 {
                     db.Entry(ClinicaAux).State = EntityState.Modified;
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Login");
                 }
                 catch (Exception e)
                 {
