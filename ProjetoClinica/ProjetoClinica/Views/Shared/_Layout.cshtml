@@ -6,31 +6,25 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <style>
-        nav a{
+        nav a {
             color: white;
             padding-left: 15px;
         }
 
-        .logo{
+        .logo {
             font-size: 20px;
         }
 
-        nav a:hover, nav a:focus{
+        nav a:hover, nav a:focus {
             text-decoration: none;
             color: white;
         }
 
-        .logoff{
-            background-color: red;
-            padding: 0;
-            padding: 0 10px;
-            margin-left: 50px;
-        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        @Html.ActionLink("ClinicManager", "Index", "Clinicas", new { @class="logo"})
+        @Html.ActionLink("ClinicManager", "Index", "Clinicas", new { @class = "logo" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,8 +40,10 @@
                 <li class="nav-item">
                     @Html.ActionLink("Consultas", "Index", "Consultas")
                 </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Logoff", "Login", "Clinicas", string.Empty, new { @class="logoff"})
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Logoff", "Login", "Clinicas", string.Empty, new { @class = "btn btn-danger" })
                 </li>
             </ul>
         </div>
